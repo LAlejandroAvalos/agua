@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía: Automatización para PYMES | Ninapochona</title>
+    <meta name="description" content="Descubre los 5 procesos clave que toda PYME debería automatizar primero para mejorar eficiencia operativa con soluciones de inteligencia artificial.">
+    <meta name="keywords" content="automatización pymes, agentes IA para negocios, eficiencia operativa, inteligencia artificial para empresas, ninapochona automatización">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Guía: Automatización para PYMES | Ninapochona">
+    <meta property="og:description" content="Los 5 procesos que toda pequeña empresa debería automatizar primero con soluciones de IA.">
+    <meta property="og:image" content="https://www.ninapochona.com/assets/images/automatizacion-pymes.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guía: Automatización para PYMES | Ninapochona">
+    <meta name="twitter:description" content="Los 5 procesos que toda pequeña empresa debería automatizar primero con soluciones de IA.">
+    <meta name="twitter:image" content="https://www.ninapochona.com/assets/images/automatizacion-pymes.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.ninapochona.com/blog/automatizacion-para-pymes">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #00cc66;
+            --primary-blue: #3366cc;
+            --secondary-green: #00aa55;
+            --secondary-blue: #2a56b7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(0, 204, 102, 0.1);
+            border-left: 4px solid var(--primary-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493491507341" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/img/logo.png" alt="Ninapochona Logo" class="h-12 w-12 mr-2">
+                    </a>
+                    <a href="/" class="text-xl font-bold text-gray-800">Ninapochona</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#inicio" class="text-gray-800 hover:text-green-600 transition">Inicio</a>
+                    <a href="/#servicios" class="text-gray-800 hover:text-green-600 transition">Servicios</a>
+                    <a href="/blog" class="text-gray-800 hover:text-green-600 transition">Blog</a>
+                    <a href="/#contacto" class="btn-primary px-4 py-2 rounded-full">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none" id="mobileMenuButton">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-8">
+        <button id="closeMobileMenu" class="absolute top-4 right-4 text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <a href="/#inicio" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Inicio</a>
+        <a href="/#servicios" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Servicios</a>
+        <a href="/blog" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Blog</a>
+        <a href="/#contacto" class="btn-primary px-6 py-3 rounded-full text-xl">Contacto</a>
+    </div>
+    
+    <!-- Article Header -->
+    <header class="bg-gradient-to-r from-blue-50 to-green-50 py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-4">Guía Práctica</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Automatización para PYMES: Los 5 Procesos Clave</h1>
+                <p class="text-xl text-gray-600">Descubre qué procesos de tu negocio deberías automatizar primero para mejorar eficiencia operativa</p>
+                <div class="flex items-center justify-center mt-6 space-x-4">
+                    <span class="text-gray-500">Publicado: 15/06/2025</span>
+                    <span class="text-gray-500">Tiempo de lectura: 5 min</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-50 py-3">
+        <div class="container mx-auto px-6">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-green-600">
+                            <i class="fas fa-home mr-2"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                            <a href="/blog" class="ml-1 text-sm font-medium text-gray-700 hover:text-green-600 md:ml-2">Blog</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Automatización para PYMES</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Article Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-6">
+            <article class="article-content">
+                <p class="text-lg font-medium">La automatización empresarial es una herramienta poderosa que puede mejorar significativamente la eficiencia operativa de las pequeñas y medianas empresas (PYMES). Aquí te presentamos los cinco procesos que toda pequeña empresa debería considerar automatizar primero. Además, te recomendamos explorar soluciones avanzadas de automatización mediante agentes de inteligencia artificial (IA) para maximizar los beneficios.</p>
+                
+                <div class="my-8">
+                    <img src="/img/guia.automatización para pymes.jpg" alt="Automatización de procesos en PYMES" class="w-full rounded-lg shadow-md">
+                    <p class="text-center text-sm text-gray-500 mt-2">La automatización puede transformar la operación de tu PYME</p>
+                </div>
+                
+                <h2 id="gestion-tareas">1. Gestión de Tareas Administrativas</h2>
+                <p>Las tareas administrativas, como la gestión de correos electrónicos, programación de citas y elaboración de informes, pueden consumir mucho tiempo. Automatizar estos procesos libera tiempo para que los empleados puedan concentrarse en actividades más estratégicas.</p>
+                <p>Herramientas de automatización pueden:</p>
+                <ul>
+                    <li>Gestionar correos electrónicos de manera eficiente</li>
+                    <li>Programar reuniones automáticamente</li>
+                    <li>Generar informes en cuestión de minutos</li>
+                    <li>Organizar documentos y archivos</li>
+                </ul>
+                <p>Estas soluciones pueden integrarse perfectamente con las herramientas que ya usas, como Google Workspace o Microsoft Office.</p>
+                
+                <div class="highlight-box">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">¿Sabías que...?</h3>
+                    <p>Según estudios, las PYMES pueden ahorrar hasta <strong>10 horas semanales</strong> por empleado al automatizar tareas administrativas repetitivas.</p>
+                </div>
+                
+                <h2 id="atencion-cliente">2. Atención al Cliente</h2>
+                <p>La atención al cliente es crucial para el éxito de cualquier negocio. Mediante chatbots y sistemas de respuesta automática, las empresas pueden ofrecer soporte las 24 horas del día, los 7 días de la semana.</p>
+                <p>Estos sistemas pueden:</p>
+                <ul>
+                    <li>Manejar consultas simples frecuentes</li>
+                    <li>Dirigir preguntas complejas a agentes humanos</li>
+                    <li>Proporcionar respuestas inmediatas a clientes</li>
+                    <li>Recopilar información previa al contacto humano</li>
+                </ul>
+                <p>La clave está en mantener un balance entre la eficiencia de la automatización y el toque humano que los clientes valoran.</p>
+                
+                <h2 id="facturacion-contabilidad">3. Procesos de Facturación y Contabilidad</h2>
+                <p>La automatización de la facturación y la contabilidad ayuda a reducir errores y acelera el ciclo de cobros. Las plataformas de automatización pueden:</p>
+                <ul>
+                    <li>Generar facturas automáticamente</li>
+                    <li>Enviar recordatorios de pago</li>
+                    <li>Reconciliar transacciones</li>
+                    <li>Generar reportes financieros</li>
+                </ul>
+                <p>Esto asegura que los libros contables estén siempre al día y sean precisos, facilitando la toma de decisiones financieras.</p>
+                
+                <div class="bg-blue-50 p-6 rounded-lg my-8">
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Caso de Éxito</h3>
+                    <p>Una PYME de comercio electrónico redujo su tiempo de facturación mensual de <strong>8 horas a solo 30 minutos</strong> después de implementar soluciones de automatización, además de eliminar errores humanos en sus procesos contables.</p>
+                </div>
+                
+                <h2 id="marketing-ventas">4. Marketing y Ventas</h2>
+                <p>Automatizar el marketing y las ventas permite a las PYMES llegar a su público objetivo de manera más eficiente. Herramientas de automatización pueden:</p>
+                <ul>
+                    <li>Gestionar campañas de correo electrónico</li>
+                    <li>Segmentar audiencias automáticamente</li>
+                    <li>Rastrear conversiones y ROI</li>
+                    <li>Analizar datos de clientes</li>
+                    <li>Automatizar seguimiento de leads</li>
+                </ul>
+                <p>Estas soluciones permiten a los equipos de marketing y ventas enfocarse en estrategias creativas mientras la tecnología maneja las tareas repetitivas.</p>
+                
+                <h2 id="recursos-humanos">5. Gestión de Recursos Humanos</h2>
+                <p>La gestión de recursos humanos puede beneficiarse enormemente de la automatización. Los sistemas automatizados pueden simplificar:</p>
+                <ul>
+                    <li>Publicación de ofertas de empleo</li>
+                    <li>Seguimiento de candidatos</li>
+                    <li>Gestión de horarios</li>
+                    <li>Administración de nóminas</li>
+                    <li>Evaluaciones de desempeño</li>
+                </ul>
+                <p>Esto mejora la experiencia tanto para empleados como para gestores, creando un ambiente laboral más eficiente.</p>
+                
+                <h2 id="soluciones-avanzadas">Exploración de Soluciones Avanzadas</h2>
+                <p>Para llevar la automatización al siguiente nivel, las PYMES pueden considerar soluciones basadas en inteligencia artificial. <strong>Ninapochona</strong> es una empresa que ofrece servicios avanzados de automatización mediante agentes de IA.</p>
+                <p>Estos agentes pueden ser entrenados para realizar funciones específicas, como:</p>
+                <ul>
+                    <li>Análisis avanzado de imágenes y documentos</li>
+                    <li>Generación de contenido con voz clonada</li>
+                    <li>Gestión compleja de agendas</li>
+                    <li>Interacción natural con clientes</li>
+                    <li>Procesamiento inteligente de datos</li>
+                </ul>
+                <p>Implementar estos cambios y adoptar soluciones tecnológicas avanzadas puede parecer un desafío, pero los beneficios a largo plazo para la productividad y la eficiencia de tu empresa son significativos.</p>
+                
+                <div class="bg-green-50 p-6 rounded-lg my-8 text-center">
+                    <h3 class="text-xl font-bold text-green-800 mb-3">¿Listo para automatizar tu PYME?</h3>
+                    <p class="mb-4">Descubre cómo nuestros agentes de IA pueden transformar tus operaciones empresariales.</p>
+                    <a href="/#contacto" class="btn-primary inline-block px-6 py-3 rounded-full">Solicitar Asesoría Gratuita</a>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-8 mt-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <span class="text-gray-600">Etiquetas:</span>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">automatización</a>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">pymes</a>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">eficiencia</a>
+                        </div>
+                        <div class="flex space-x-4">
+                            <span class="text-gray-600">Compartir:</span>
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-600"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <!-- Related Articles -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8">Artículos Relacionados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium mb-2">Guía</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo Elegir el Mejor Agente de Automatización para tu Negocio</h3>
+                        <p class="text-gray-600 mb-4">Descubre los criterios clave para seleccionar la solución de automatización ideal para tu empresa.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-800 transition">Leer más →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium mb-2">Caso de Estudio</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">De 8 a 1: Cómo una PYME Redujo sus Horas de Facturación con IA</h3>
+                        <p class="text-gray-600 mb-4">La historia real de cómo un comercio local optimizó sus procesos financieros.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-800 transition">Leer más →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium mb-2">Tutorial</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Primeros Pasos con n8n: Automatización para No-Técnicos</h3>
+                        <p class="text-gray-600 mb-4">Aprende a crear tus primeros flujos de trabajo automatizados sin necesidad de programar.</p>
+                        <a href="#" class="text-green-600 font-medium hover:text-green-800 transition">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">¿Listo para Transformar tu Negocio con Automatización?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Descubre cómo nuestros agentes de IA pueden liberar tiempo y recursos valiosos para que te enfoques en lo que realmente importa.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/#servicios" class="bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Ver Servicios</a>
+                <a href="/#contacto" class="bg-transparent border-2 border-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-green-600 transition">Contactar Ahora</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40x40" alt="Ninapochona Logo" class="h-10 w-10 mr-2">
+                        <span class="text-xl font-bold">Ninapochona</span>
+                    </div>
+                    <p class="text-gray-400">Automatización de procesos mediante agentes con AI para negocios latinoamericanos.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/#servicios" class="text-gray-400 hover:text-white transition">Agentes Automatizados</a></li>
+                        <li><a href="/#funcionamiento" class="text-gray-400 hover:text-white transition">¿Cómo Funciona?</a></li>
+                        <li><a href="/#casos" class="text-gray-400 hover:text-white transition">Casos de Éxito</a></li>
+                        <li><a href="/#contacto" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/blog" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Guías</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Ninapochona. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add current year to footer
+        document.querySelector('footer .text-gray-400').textContent = `© ${new Date().getFullYear()} Ninapochona. Todos los derechos reservados.`;
+    </script>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guía: Automatización para PYMES - Los 5 Procesos Clave",
+      "description": "Descubre los 5 procesos que toda PYME debería automatizar primero para mejorar eficiencia operativa con soluciones de inteligencia artificial.",
+      "author": {
+        "@type": "Organization",
+        "name": "Ninapochona",
+        "url": "https://www.ninapochona.com"
+      },
+      "datePublished": "2023-11-15",
+      "image": "https://www.ninapochona.com/assets/images/automatizacion-pymes.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ninapochona",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ninapochona.com/assets/images/logo.png"
+        }
+      }
+    }
+    </script>
+</body>
+</html>

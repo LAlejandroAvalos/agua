@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Automatización | Ninapochona</title>
+    <meta name="description" content="Aprende sobre automatización con nuestros recursos exclusivos: guías, webinars y casos de estudio para emprendedores latinos.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #00cc66;
+            --primary-blue: #3366cc;
+            --secondary-green: #00aa55;
+            --secondary-blue: #2a56b7;
+            --dark-blue: #1e3a8a;
+            --light-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: #334155;
+            overflow-x: hidden;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(51,102,204,0.1) 0%, rgba(0,204,102,0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(rgba(51,102,204,0.2) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            z-index: 0;
+        }
+        
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(rgba(0,204,102,0.2) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            z-index: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 204, 102, 0.2);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(51, 102, 204, 0.2);
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(51, 102, 204, 0.3);
+        }
+        
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .resource-card {
+            transition: all 0.4s ease;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            position: relative;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .resource-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-blue);
+            top: 10%;
+            left: 5%;
+            animation: float-shape 15s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary-green);
+            bottom: 15%;
+            right: 10%;
+            animation: float-shape 12s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float-shape {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(20px, 30px) rotate(120deg); }
+            66% { transform: translate(-15px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        .nav-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .footer-links a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+        
+        /* Ajustes de responsividad */
+        @media (max-width: 1024px) {
+            .stats-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+            .stats-number {
+                font-size: 2rem;
+            }
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-gradient {
+                text-align: center;
+            }
+            .resource-card {
+                margin: 0 10px;
+            }
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493491541201" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <div class="h-12 w-12 mr-3 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                            <img src="img/logo.png">
+                        </div>
+                    </a>
+                    <span class="text-xl font-bold text-gray-800">Ninapochona</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#inicio" class="text-gray-800 hover:text-green-600 transition font-medium">Inicio</a>
+                    <a href="index.html#servicios" class="text-gray-800 hover:text-green-600 transition font-medium">Servicios</a>
+                    <a href="index.html#funcionamiento" class="text-gray-800 hover:text-green-600 transition font-medium">¿Cómo Funciona?</a>
+                    <a href="index.html#casos" class="text-gray-800 hover:text-green-600 transition font-medium">Casos de Éxito</a>
+                    <a href="recursos.html" class="text-gray-800 hover:text-green-600 transition font-medium font-bold">Recursos</a>
+                    <a href="index.html#contacto" class="btn-primary px-5 py-2.5 rounded-full font-medium">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 leading-tight">Recursos de <span class="gradient-text">Automatización</span></h1>
+                <p class="text-xl text-gray-600 mb-8">Aprende a optimizar tu negocio con nuestras guías, webinars y casos de estudio exclusivos</p>
+                <div class="bg-white rounded-full px-4 py-2 inline-flex items-center max-w-lg mx-auto shadow-sm">
+                    <i class="fas fa-search text-gray-400 mr-2"></i>
+                    <input type="text" placeholder="Buscar recursos..." class="w-full py-1 outline-none">
+                    <button class="bg-green-500 text-white px-4 py-1 rounded-full ml-2">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="stats-number">+50</div>
+                    <p class="text-gray-600 font-medium">Recursos disponibles</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">5k+</div>
+                    <p class="text-gray-600 font-medium">Descargas mensuales</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">98%</div>
+                    <p class="text-gray-600 font-medium">Satisfacción usuarios</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">100%</div>
+                    <p class="text-gray-600 font-medium">Contenido práctico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Grid -->
+    <section class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap mb-8 justify-center">
+                <button class="bg-green-500 text-white px-4 py-2 rounded-full m-1">Todos</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Guías</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Webinars</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Plantillas</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Tutoriales</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guía de Automatización" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Guía</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 10 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Guía: Automatización para PYMES</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Los 5 procesos que toda pequeña empresa debería automatizar primero para ahorrar tiempo y recursos.</p>
+                        <a href="blog/automatizapyme.html" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Leer más</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Webinar n8n" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Webinar</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 45 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Webinar: n8n para No-Técnicos</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Aprende a crear tus primeros flujos de automatización sin saber programar. Incluye ejemplos prácticos.</p>
+                        <a href="webinars/n8n-no-tecnicos.html" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Ver grabación</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Checklist Evaluación" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Plantilla</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-file-alt mr-1"></i> PDF Descargable</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Checklist: Evalúa tu Negocio</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Descubre qué procesos de tu empresa son candidatos ideales para automatizar y prioriza su implementación.</p>
+                        <a href="descargas/checklist-evaluacion.html" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Descargar</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Caso de Éxito" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Caso de Estudio</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 15 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo una Tienda Online Aumentó Ventas 45%</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Caso real de implementación de agentes automatizados para e-commerce en Latinoamérica.</p>
+                        <a href="casos/tienda-online-ventas.html" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Ver caso</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Tutorial WhatsApp" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Tutorial</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 20 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Automatiza Respuestas de WhatsApp con n8n</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Aprende paso a paso cómo configurar respuestas automáticas para tu negocio sin complicaciones.</p>
+                        <a href="tutoriales/whatsapp-automatizacion.html" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Seguir tutorial</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="SEO para Automatización" class="w-full h-48 object-cover">
+                    <div class="resource-card-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Guía</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 12 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo Integrar Automatización con SEO</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Maximiza tu estrategia de contenido automatizado para mejorar posicionamiento orgánico.</p>
+                        <a href="blog/automatizacion-seo.html" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold">Cargar más recursos</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">¿Por qué nuestros recursos son diferentes?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Diseñados específicamente para emprendedores y pequeñas empresas latinoamericanas</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Aplicación Inmediata</h3>
+                    <p class="text-gray-600">Todos nuestros recursos están diseñados para que puedas implementar lo aprendido inmediatamente en tu negocio.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Enfoque Práctico</h3>
+                    <p class="text-gray-600">Evitamos la teoría innecesaria y nos centramos en pasos concretos que generen resultados tangibles.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Contexto Latinoamericano</h3>
+                    <p class="text-gray-600">Nuestros ejemplos y casos están adaptados a la realidad de los negocios en América Latina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section py-16 text-white">
+        <div class="cta-pattern"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Quieres acceso a todos nuestros recursos?</h2>
+                <p class="text-xl mb-8 opacity-90">Suscríbete a nuestro newsletter y recibe contenido exclusivo cada semana</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Tu email" class="flex-grow px-6 py-4 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-white text-gray-800">
+                    <button type="submit" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition shadow-lg">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Preguntas frecuentes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Resolvemos tus dudas sobre nuestros recursos</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Los recursos son gratuitos?</h3>
+                    <p class="text-gray-600">Sí, la mayoría de nuestros recursos son completamente gratuitos. Algunos webinars avanzados o plantillas premium pueden tener un costo, pero siempre lo indicamos claramente.</p>
+                </div>
+                
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Con qué frecuencia publican nuevo contenido?</h3>
+                    <p class="text-gray-600">Publicamos nuevos recursos cada semana. Suscríbete a nuestro newsletter para recibir notificaciones de cada nuevo material que lancemos.</p>
+                </div>
+                
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Puedo sugerir temas para futuros recursos?</h3>
+                    <p class="text-gray-600">¡Por supuesto! Nos encanta recibir sugerencias de nuestra comunidad. Escríbenos a info@ninapochona.com con tus ideas.</p>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="index.html#contacto" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">¿Tienes otra pregunta?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="h-10 w-10 mr-3 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl flex items-center justify-center text-white font-bold">
+                            NP
+                        </div>
+                        <span class="text-xl font-bold">Ninapochona</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Automatización con alma para tu negocio. Agentes automatizados con IA diseñados específicamente para potenciar tu empresa.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Recursos</h3>
+                    <ul class="space-y-3 footer-links">
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white font-bold">Blog</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white">Guías</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white">Webinars</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white">Plantillas</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white">Tutoriales</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white">Casos de Estudio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Enlaces útiles</h3>
+                    <ul class="space-y-3 footer-links">
+                        <li><a href="index.html#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
+                        <li><a href="index.html#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
+                        <li><a href="index.html#funcionamiento" class="text-gray-400 hover:text-white">¿Cómo Funciona?</a></li>
+                        <li><a href="index.html#casos" class="text-gray-400 hover:text-white">Casos de Éxito</a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Suscríbete al newsletter</h3>
+                    <p class="text-gray-400 mb-4">Recibe tips de automatización y casos de estudio directamente en tu email.</p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Tu email" class="px-4 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <button type="submit" class="btn-primary px-4 py-2.5 rounded-lg text-center">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Ninapochona. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            // This would toggle a mobile menu - functionality to be expanded
+            alert('Menú móvil - En desarrollo');
+        });
+        
+        // Filter functionality for resource categories
+        document.querySelectorAll('.flex-wrap button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.flex-wrap button').forEach(btn => {
+                    btn.classList.remove('bg-green-500', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-800', 'hover:bg-gray-100');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-white', 'text-gray-800', 'hover:bg-gray-100');
+                this.classList.add('bg-green-500', 'text-white');
+                
+                // Here you would filter the resources based on category
+                alert('Filtrando recursos por: ' + this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

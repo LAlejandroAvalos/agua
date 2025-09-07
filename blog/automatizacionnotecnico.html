@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeros Pasos con n8n: Automatización para No-Técnicos | Ninapochona</title>
+    <meta name="description" content="Guía completa para comenzar con n8n sin conocimientos de programación. Aprende a instalar y crear tu primer flujo de trabajo automatizado paso a paso.">
+    <meta name="keywords" content="n8n tutorial, automatización sin programar, flujos de trabajo n8n, automatización para principiantes, ninapochona n8n">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Primeros Pasos con n8n: Automatización para No-Técnicos | Ninapochona">
+    <meta property="og:description" content="Aprende a instalar y crear tu primer flujo de trabajo automatizado con n8n sin necesidad de programar.">
+    <meta property="og:image" content="https://www.ninapochona.com/assets/images/n8n-primeros-pasos.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Primeros Pasos con n8n: Automatización para No-Técnicos | Ninapochona">
+    <meta name="twitter:description" content="Aprende a instalar y crear tu primer flujo de trabajo automatizado con n8n sin necesidad de programar.">
+    <meta name="twitter:image" content="https://www.ninapochona.com/assets/images/n8n-primeros-pasos.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.ninapochona.com/blog/primeros-pasos-n8n">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #00cc66;
+            --primary-blue: #3366cc;
+            --secondary-green: #00aa55;
+            --secondary-blue: #2a56b7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .step-box {
+            background-color: white;
+            border-left: 4px solid var(--primary-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(51, 102, 204, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 0 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493491507341" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="https://via.placeholder.com/50x50" alt="Ninapochona Logo" class="h-12 w-12 mr-2">
+                    </a>
+                    <a href="/" class="text-xl font-bold text-gray-800">Ninapochona</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#inicio" class="text-gray-800 hover:text-green-600 transition">Inicio</a>
+                    <a href="/#servicios" class="text-gray-800 hover:text-green-600 transition">Servicios</a>
+                    <a href="/blog" class="text-gray-800 hover:text-green-600 transition">Blog</a>
+                    <a href="/#contacto" class="btn-primary px-4 py-2 rounded-full">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none" id="mobileMenuButton">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-8">
+        <button id="closeMobileMenu" class="absolute top-4 right-4 text-gray-800">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <a href="/#inicio" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Inicio</a>
+        <a href="/#servicios" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Servicios</a>
+        <a href="/blog" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Blog</a>
+        <a href="/#contacto" class="btn-primary px-6 py-3 rounded-full text-xl">Contacto</a>
+    </div>
+    
+    <!-- Article Header -->
+    <header class="bg-gradient-to-r from-blue-50 to-green-50 py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-4">Tutorial Paso a Paso</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Primeros Pasos con n8n: Automatización para No-Técnicos</h1>
+                <p class="text-xl text-gray-600">Aprende a crear tus primeros flujos de trabajo automatizados sin necesidad de programar</p>
+                <div class="flex items-center justify-center mt-6 space-x-4">
+                    <span class="text-gray-500">Publicado: 15/11/2023</span>
+                    <span class="text-gray-500">Tiempo de lectura: 7 min</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-50 py-3">
+        <div class="container mx-auto px-6">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-green-600">
+                            <i class="fas fa-home mr-2"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                            <a href="/blog" class="ml-1 text-sm font-medium text-gray-700 hover:text-green-600 md:ml-2">Blog</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Tutorial n8n</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Article Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-6">
+            <article class="article-content">
+                <p class="text-lg font-medium">n8n es una potente herramienta de automatización de flujos de trabajo que te permite conectar diferentes aplicaciones y servicios sin necesidad de tener conocimientos de programación. En este tutorial completo, te guiaremos paso a paso para que puedas crear tus primeros flujos de trabajo automatizados de manera sencilla.</p>
+                
+                <div class="my-8">
+                    <img src="https://via.placeholder.com/800x450" alt="Interfaz de n8n mostrando flujos de trabajo" class="w-full rounded-lg shadow-md">
+                    <p class="text-center text-sm text-gray-500 mt-2">La interfaz visual de n8n hace que la automatización sea accesible para todos</p>
+                </div>
+                
+                <h2 id="que-es-n8n">¿Qué es n8n?</h2>
+                <p>n8n (pronunciado "n-eight-n") es una plataforma de automatización de código abierto que te permite crear flujos de trabajo complejos conectando múltiples servicios y aplicaciones mediante una interfaz visual intuitiva.</p>
+                
+                <div class="highlight-box">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Características clave de n8n:</h3>
+                    <ul>
+                        <li><strong>Interfaz gráfica:</strong> No requiere conocimientos de programación</li>
+                        <li><strong>Autoalojado:</strong> Puedes instalarlo en tus propios servidores</li>
+                        <li><strong>Extensible:</strong> Más de 200 integraciones con servicios populares</li>
+                        <li><strong>Comunidad activa:</strong> Soporte y plantillas compartidas por usuarios</li>
+                        <li><strong>Gratuito:</strong> Licencia de código abierto con opción empresarial</li>
+                    </ul>
+                </div>
+                
+                <h2 id="instalacion-n8n">Instalación de n8n</h2>
+                <p>Sigue estos pasos para instalar n8n en tu computadora y comenzar a automatizar tus procesos:</p>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Requisitos previos</h3>
+                            <p>Asegúrate de tener Node.js (versión 14 o superior) y npm instalados en tu sistema. Puedes verificar su instalación ejecutando estos comandos en tu terminal:</p>
+                            <div class="code-block">
+                                node -v<br>
+                                npm -v
+                            </div>
+                            <p>Si no los tienes instalados, descarga Node.js desde <a href="https://nodejs.org/" target="_blank" class="text-blue-600 hover:underline">su sitio oficial</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Instalación global de n8n</h3>
+                            <p>Una vez que tengas Node.js y npm instalados, abre tu terminal o línea de comandos y ejecuta:</p>
+                            <div class="code-block">
+                                npm install n8n -g
+                            </div>
+                            <p>Este comando instalará n8n globalmente en tu sistema, lo que significa que podrás acceder a él desde cualquier directorio.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Ejecutar n8n</h3>
+                            <p>Para iniciar el servidor de n8n, simplemente ejecuta:</p>
+                            <div class="code-block">
+                                n8n
+                            </div>
+                            <p>Verás en la terminal que el servidor se inicia y estará listo para recibir conexiones.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">4</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Acceder a la interfaz web</h3>
+                            <p>Abre tu navegador web y visita:</p>
+                            <div class="code-block">
+                                http://localhost:5678
+                            </div>
+                            <p>¡Felicidades! Ahora estás viendo la interfaz de n8n donde podrás crear tus flujos de trabajo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg my-6">
+                    <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        Alternativa: Versión en la nube
+                    </h3>
+                    <p>Si prefieres no instalar n8n en tu computadora, puedes usar <a href="https://www.n8n.io/cloud/" target="_blank" class="text-blue-600 hover:underline">n8n.cloud</a>, la versión hospedada oficialmente. Esta opción es ideal si quieres comenzar rápidamente sin preocuparte por la infraestructura.</p>
+                </div>
+                
+                <h2 id="primer-flujo">Creando tu Primer Flujo de Trabajo</h2>
+                <p>Ahora que tienes n8n funcionando, vamos a crear un flujo de trabajo simple que te ayudará a entender los conceptos básicos.</p>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Crear un nuevo flujo de trabajo</h3>
+                            <p>En la interfaz de n8n, haz clic en el botón "New" en la esquina superior izquierda para comenzar un nuevo flujo de trabajo.</p>
+                            <img src="https://via.placeholder.com/600x300" alt="Botón New en n8n" class="w-full rounded-lg shadow-sm mt-2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Agregar un nodo de inicio</h3>
+                            <p>Los flujos de trabajo en n8n comienzan con un nodo desencadenador (trigger). Haz clic en el botón "+" y selecciona "Cron" bajo la sección "Trigger".</p>
+                            <p>El nodo Cron te permite programar la ejecución de tu flujo de trabajo en intervalos específicos. Configúralo para que se ejecute cada hora:</p>
+                            <img src="https://via.placeholder.com/600x300" alt="Configuración del nodo Cron" class="w-full rounded-lg shadow-sm mt-2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Añadir una acción</h3>
+                            <p>Ahora agregaremos un nodo de acción. Haz clic en el botón "+" que aparece al conectar el nodo Cron y selecciona "HTTP Request" bajo "Core Nodes".</p>
+                            <p>Configura el nodo HTTP Request para obtener datos de una API pública. Por ejemplo, puedes usar la API de chistes aleatorios:</p>
+                            <div class="code-block">
+                                URL: https://official-joke-api.appspot.com/random_joke<br>
+                                Método: GET
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">4</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Probar el flujo</h3>
+                            <p>Haz clic en "Execute Workflow" en la parte superior derecha para probar tu flujo de trabajo. Verás los resultados de la API en el panel de salida.</p>
+                            <img src="https://via.placeholder.com/600x300" alt="Resultados de ejecución en n8n" class="w-full rounded-lg shadow-sm mt-2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="flex items-start">
+                        <span class="step-number">5</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Guardar y activar</h3>
+                            <p>Haz clic en "Save" para guardar tu flujo de trabajo. Luego activa el interruptor en la parte superior para que se ejecute automáticamente según la programación del nodo Cron.</p>
+                            <p>¡Listo! Has creado tu primer flujo de trabajo automatizado que obtendrá un chiste aleatorio cada hora.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 id="consejos-n8n">Consejos para el Uso de n8n</h2>
+                <p>Ahora que has creado tu primer flujo, aquí tienes algunos consejos para aprovechar al máximo n8n:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-search text-blue-500 mr-2"></i>
+                            Explora la biblioteca de nodos
+                        </h3>
+                        <p>n8n ofrece más de 200 nodos para diferentes servicios como Google Sheets, Slack, Trello y muchos más. Dedica tiempo a explorar las posibilidades.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-flask text-green-500 mr-2"></i>
+                            Prueba y ajusta
+                        </h3>
+                        <p>No temas experimentar. Usa el botón "Execute Node" para probar nodos individualmente y ajusta las configuraciones según necesites.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-users text-purple-500 mr-2"></i>
+                            Únete a la comunidad
+                        </h3>
+                        <p>Participa en el <a href="https://community.n8n.io/" target="_blank" class="text-blue-600 hover:underline">foro oficial</a> de n8n para aprender de otros usuarios y resolver dudas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-book text-orange-500 mr-2"></i>
+                            Consulta la documentación
+                        </h3>
+                        <p>La <a href="https://docs.n8n.io/" target="_blank" class="text-blue-600 hover:underline">documentación oficial</a> es excelente y contiene ejemplos para muchos casos de uso comunes.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg my-8">
+                    <h3 class="text-xl font-bold text-green-800 mb-3">¿Necesitas automatizaciones más avanzadas?</h3>
+                    <p class="mb-4">Si requieres flujos de trabajo complejos o integraciones personalizadas, en Ninapochona podemos ayudarte. Nuestros expertos en automatización pueden crear soluciones a medida para tu negocio.</p>
+                    <a href="/#contacto" class="btn-primary inline-block px-6 py-3 rounded-full">Contactar a un Experto</a>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-8 mt-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <span class="text-gray-600">Etiquetas:</span>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">n8n</a>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">automatización</a>
+                            <a href="#" class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-gray-200 ml-2">tutorial</a>
+                        </div>
+                        <div class="flex space-x-4">
+                            <span class="text-gray-600">Compartir:</span>
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-600"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <!-- Related Articles -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8">Más Tutoriales de Automatización</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium mb-2">Guía</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Automatización para PYMES: Los 5 Procesos Clave</h3>
+                        <p class="text-gray-600 mb-4">Descubre qué procesos de tu negocio deberías automatizar primero para mejorar eficiencia operativa.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">Leer más →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium mb-2">Tutorial</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo Automatizar el Envío de Emails con n8n</h3>
+                        <p class="text-gray-600 mb-4">Aprende a configurar flujos automatizados para enviar correos electrónicos personalizados.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">Leer más →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://via.placeholder.com/400x225" alt="Artículo relacionado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block px-2 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium mb-2">Caso Práctico</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Automatización de Facturas con Google Sheets y n8n</h3>
+                        <p class="text-gray-600 mb-4">Cómo una PYME automatizó su proceso de facturación y ahorró 10 horas semanales.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">¿Listo para Llevar tu Automatización al Siguiente Nivel?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Nuestros agentes de IA personalizados pueden manejar flujos de trabajo complejos mientras te enfocas en tu negocio.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="/#servicios" class="bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Ver Soluciones</a>
+                <a href="/#contacto" class="bg-transparent border-2 border-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-green-600 transition">Solicitar Demo</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40x40" alt="Ninapochona Logo" class="h-10 w-10 mr-2">
+                        <span class="text-xl font-bold">Ninapochona</span>
+                    </div>
+                    <p class="text-gray-400">Automatización de procesos mediante agentes con AI para negocios latinoamericanos.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/#servicios" class="text-gray-400 hover:text-white transition">Agentes Automatizados</a></li>
+                        <li><a href="/#funcionamiento" class="text-gray-400 hover:text-white transition">¿Cómo Funciona?</a></li>
+                        <li><a href="/#casos" class="text-gray-400 hover:text-white transition">Casos de Éxito</a></li>
+                        <li><a href="/#contacto" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/blog" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Guías</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Ninapochona. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add current year to footer
+        document.querySelector('footer .text-gray-400').textContent = `© ${new Date().getFullYear()} Ninapochona. Todos los derechos reservados.`;
+    </script>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Primeros Pasos con n8n: Automatización para No-Técnicos",
+      "description": "Guía completa para comenzar con n8n sin conocimientos de programación. Aprende a instalar y crear tu primer flujo de trabajo automatizado paso a paso.",
+      "author": {
+        "@type": "Organization",
+        "name": "Ninapochona",
+        "url": "https://www.ninapochona.com"
+      },
+      "datePublished": "2023-11-15",
+      "image": "https://www.ninapochona.com/assets/images/n8n-primeros-pasos.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ninapochona",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ninapochona.com/assets/images/logo.png"
+        }
+      }
+    }
+    </script>
+</body>
+</html>

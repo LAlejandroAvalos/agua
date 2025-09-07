@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Automatización | Ninapochona</title>
+    <meta name="description" content="Aprende sobre automatización con nuestros recursos exclusivos: guías, webinars y casos de estudio para emprendedores latinos.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #00cc66;
+            --primary-blue: #3366cc;
+            --secondary-green: #00aa55;
+            --secondary-blue: #2a56b7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(51,102,204,0.1) 0%, rgba(0,204,102,0.1) 100%);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .hero-gradient {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-gradient {
+                text-align: center;
+            }
+            .resource-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493491541201" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="https://via.placeholder.com/50x50" alt="Ninapochona Logo" class="h-12 w-12 mr-2">
+                    </a>
+                    <span class="text-xl font-bold text-gray-800">Ninapochona</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#inicio" class="text-gray-800 hover:text-green-600 transition">Inicio</a>
+                    <a href="index.html#servicios" class="text-gray-800 hover:text-green-600 transition">Servicios</a>
+                    <a href="index.html#funcionamiento" class="text-gray-800 hover:text-green-600 transition">¿Cómo Funciona?</a>
+                    <a href="index.html#casos" class="text-gray-800 hover:text-green-600 transition">Casos de Éxito</a>
+                    <a href="recursos.html" class="text-gray-800 hover:text-green-600 transition font-bold">Recursos</a>
+                    <a href="index.html#contacto" class="btn-primary px-4 py-2 rounded-full">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none" id="mobileMenuButton">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Recursos de Automatización</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">Aprende a optimizar tu negocio con nuestras guías, webinars y casos de estudio</p>
+                <div class="bg-white rounded-full px-4 py-2 inline-flex items-center max-w-lg mx-auto shadow-sm">
+                    <i class="fas fa-search text-gray-400 mr-2"></i>
+                    <input type="text" placeholder="Buscar recursos..." class="w-full py-1 outline-none">
+                    <button class="bg-green-500 text-white px-4 py-1 rounded-full ml-2">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap mb-8 justify-center">
+                <button class="bg-green-500 text-white px-4 py-2 rounded-full m-1">Todos</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Guías</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Webinars</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Casos de Estudio</button>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-full m-1 hover:bg-gray-100">Tutoriales</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="Guía de Automatización" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Guía</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 10 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Guía: Automatización para PYMES</h3>
+                        <p class="text-gray-600 mb-4">Los 5 procesos que toda pequeña empresa debería automatizar primero para ahorrar tiempo y recursos.</p>
+                        <a href="blog/automatizapyme.html" class="btn-secondary block text-center px-4 py-2 rounded-full">Leer más</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="Webinar n8n" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Webinar</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 45 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Webinar: n8n para No-Técnicos</h3>
+                        <p class="text-gray-600 mb-4">Aprende a crear tus primeros flujos de automatización sin saber programar. Incluye ejemplos prácticos.</p>
+                        <a href="webinars/n8n-no-tecnicos.html" class="btn-primary block text-center px-4 py-2 rounded-full">Ver grabación</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="Checklist Evaluación" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Plantilla</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-file-alt mr-1"></i> PDF Descargable</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Checklist: Evalúa tu Negocio</h3>
+                        <p class="text-gray-600 mb-4">Descubre qué procesos de tu empresa son candidatos ideales para automatizar y prioriza su implementación.</p>
+                        <a href="descargas/checklist-evaluacion.html" class="btn-secondary block text-center px-4 py-2 rounded-full">Descargar</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="Caso de Éxito" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Caso de Estudio</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 15 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo una Tienda Online Aumentó Ventas 45%</h3>
+                        <p class="text-gray-600 mb-4">Caso real de implementación de agentes automatizados para e-commerce en Latinoamérica.</p>
+                        <a href="casos/tienda-online-ventas.html" class="btn-primary block text-center px-4 py-2 rounded-full">Ver caso</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="Tutorial WhatsApp" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Tutorial</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 20 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Automatiza Respuestas de WhatsApp con n8n</h3>
+                        <p class="text-gray-600 mb-4">Aprende paso a paso cómo configurar respuestas automáticas para tu negocio sin complicaciones.</p>
+                        <a href="tutoriales/whatsapp-automatizacion.html" class="btn-secondary block text-center px-4 py-2 rounded-full">Seguir tutorial</a>
+                    </div>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card bg-white">
+                    <img src="https://via.placeholder.com/400x200" alt="SEO para Automatización" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Guía</span>
+                            <span class="text-gray-500 text-sm ml-3"><i class="far fa-clock mr-1"></i> 12 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo Integrar Automatización con SEO</h3>
+                        <p class="text-gray-600 mb-4">Maximiza tu estrategia de contenido automatizado para mejorar posicionamiento orgánico.</p>
+                        <a href="blog/automatizacion-seo.html" class="btn-primary block text-center px-4 py-2 rounded-full">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-secondary px-6 py-3 rounded-full">Cargar más recursos</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-8 text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Recibe recursos exclusivos cada semana</h2>
+                <p class="text-gray-600 mb-6">Suscríbete a nuestro newsletter y obtén guías, casos de estudio y tips de automatización directamente en tu email.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Tu email" class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    <button type="submit" class="btn-primary px-6 py-3 rounded-lg">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/50x50" alt="Ninapochona Logo" class="h-10 w-10 mr-2">
+                        <span class="text-xl font-bold">Ninapochona</span>
+                    </div>
+                    <p class="text-gray-400">Automatización de procesos mediante agentes con AI para negocios latinoamericanos.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#servicios" class="text-gray-400 hover:text-white transition">Agentes Automatizados</a></li>
+                        <li><a href="index.html#funcionamiento" class="text-gray-400 hover:text-white transition">¿Cómo Funciona?</a></li>
+                        <li><a href="index.html#casos" class="text-gray-400 hover:text-white transition">Casos de Éxito</a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white transition font-bold">Blog</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white transition">Guías</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                        <li><a href="recursos.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Ninapochona. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-8';
+        mobileMenu.innerHTML = `
+            <button class="absolute top-4 right-4 text-gray-800" id="closeMobileMenu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="index.html#inicio" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Inicio</a>
+            <a href="index.html#servicios" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Servicios</a>
+            <a href="index.html#funcionamiento" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">¿Cómo Funciona?</a>
+            <a href="index.html#casos" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition">Casos de Éxito</a>
+            <a href="recursos.html" class="text-2xl font-medium text-gray-800 hover:text-green-600 transition font-bold">Recursos</a>
+            <a href="index.html#contacto" class="btn-primary px-6 py-3 rounded-full text-xl">Contacto</a>
+        `;
+
+        mobileMenuButton.addEventListener('click', () => {
+            document.body.appendChild(mobileMenu);
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenu.querySelector('#closeMobileMenu').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

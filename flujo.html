@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flujo Modular Animado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .workflow {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+    }
+
+    .node {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .node:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255,255,255,0.7);
+      cursor: pointer;
+    }
+
+    .trigger { background: radial-gradient(circle at top, #2ecc71, #27ae60); }
+    .api     { background: radial-gradient(circle at top, #3498db, #2980b9); }
+    .process { background: radial-gradient(circle at top, #2ecc71, #27ae60); }
+    .output  { background: radial-gradient(circle at top, #3498db, #2980b9); }
+
+    /* Líneas de conexión */
+    .line {
+      position: absolute;
+      height: 4px;
+      background: linear-gradient(90deg, #00ffcc, #00ffff);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    /* Animación de flujo */
+    .flow {
+      position: absolute;
+      height: 6px;
+      width: 0;
+      background: linear-gradient(90deg, #00ffcc, #00ffff);
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 4px;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    /* Efecto pulso */
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
+      50%  { box-shadow: 0 0 50px rgba(255,255,255,1); }
+      100% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
+    }
+
+    .active {
+      animation: pulse 1.5s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="workflow">
+    <div class="node trigger">Trigger ⚡</div>
+    <div class="line" id="line1"></div>
+    <div class="node api">API 🌐</div>
+    <div class="line" id="line2"></div>
+    <div class="node process">Proceso ⚙️</div>
+    <div class="line" id="line3"></div>
+    <div class="node output">Salida 📤</div>
+  </div>
+
+  <script>
+    const nodes = document.querySelectorAll('.node');
+    const lines = [document.getElementById('line1'), document.getElementById('line2'), document.getElementById('line3')];
+    const workflow = document.querySelector('.workflow');
+
+    function setLinePositions() {
+      lines.forEach((line, index) => {
+        const start = nodes[index].getBoundingClientRect();
+        const end = nodes[index + 1].getBoundingClientRect();
+        const container = workflow.getBoundingClientRect();
+
+        const x1 = start.right - container.left;
+        const x2 = end.left - container.left;
+        line.style.left = x1 + 'px';
+        line.style.width = (x2 - x1) + 'px';
+      });
+    }
+
+    window.addEventListener('resize', setLinePositions);
+    window.addEventListener('load', () => {
+      setLinePositions();
+      animateFlow();
+    });
+
+    function animateFlow() {
+      let i = 0;
+      function step() {
+        if (i > 0) nodes[i-1].classList.remove('active');
+        if (i < nodes.length) {
+          nodes[i].classList.add('active');
+
+          const flow = document.createElement('div');
+          flow.classList.add('flow');
+          const line = lines[i];
+          if (line) {
+            flow.style.left = line.style.left;
+            line.parentElement.appendChild(flow);
+
+            let width = 0;
+            const interval = setInterval(() => {
+              if (width >= parseInt(line.style.width)) {
+                clearInterval(interval);
+                i++;
+                setTimeout(step, 800);
+              } else {
+                width += 5;
+                flow.style.width = width + 'px';
+              }
+            }, 20);
+          } else {
+            i++;
+            setTimeout(step, 1000);
+          }
+        } else {
+          setTimeout(() => {
+            nodes.forEach(n => n.classList.remove('active'));
+            document.querySelectorAll('.flow').forEach(f => f.remove());
+            i = 0;
+            step();
+          }, 2000);
+        }
+      }
+      step();
+    }
+  </script>
+</body>
+</html>
