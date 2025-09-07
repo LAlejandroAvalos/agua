@@ -1,559 +1,1106 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="L´naua - Agua de mesa envasada de máxima calidad en Tostado, Santa Fe. Proceso de purificación con ósmosis inversa, UV y ozonización. Bidones con faja de seguridad.">
-    <meta name="keywords" content="agua envasada, bidón agua, dispensador agua, agua purificada, Tostado, Santa Fe, agua osmozada, ósmosis inversa, agua UV, ozonización">
-    <title>L´naua - Agua de Mesa Envasada Premium en Tostado, Santa Fe</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Automatizá tu negocio con Ninapochona | Agentes personalizados con IA</title>
+    <meta name="description" content="Desde asistentes para CEOs hasta gestores de e-commerce. Ninapochona crea agentes con n8n para automatizar procesos y escalar tu negocio.">
+    <meta name="keywords" content="agentes automatizados, n8n, scraping, eficiencia, SEO, automatización para emprendedores latinos, automatización de procesos repetitivos">
+    
+    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- Water Background Effect -->
-    <div class="water-background">
-        <div class="water-wave"></div>
-        <div class="water-wave"></div>
-        <div class="water-wave"></div>
-    </div>
-
     
-    <!-- Header -->
-    <header>
-        <div class="logo-container">
-            <div class="logo-placeholder">
-                <i class="fas fa-tint"></i>
-            </div>
-            <div class="logo-text">
-                <h1>L´naua</h1>
-                <p>Agua de mesa envasada</p>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #00cc66;
+            --primary-blue: #3366cc;
+            --secondary-green: #00aa55;
+            --secondary-blue: #2a56b7;
+            --dark-blue: #1e3a8a;
+            --light-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: #334155;
+            overflow-x: hidden;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(51,102,204,0.1) 0%, rgba(0,204,102,0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(rgba(51,102,204,0.2) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            z-index: 0;
+        }
+        
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(rgba(0,204,102,0.2) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            z-index: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 204, 102, 0.2);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(51, 102, 204, 0.2);
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(51, 102, 204, 0.3);
+        }
+        
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .service-card {
+            transition: all 0.4s ease;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .robot-avatar {
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 15px 10px rgba(0,0,0,0.1));
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .workflow-animation {
+            position: relative;
+            height: 300px;
+            background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%23333' stroke-width='2' stroke-dasharray='15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 20px;
+        }
+        
+        .node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        }
+        
+        .connector {
+            position: absolute;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+            transform-origin: left center;
+            z-index: 1;
+        }
+        
+        .animated-connector {
+            animation: extend 3s infinite;
+        }
+        
+        @keyframes extend {
+            0% { transform: scaleX(0); opacity: 0; }
+            50% { transform: scaleX(1); opacity: 1; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-blue);
+            top: 10%;
+            left: 5%;
+            animation: float-shape 15s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary-green);
+            bottom: 15%;
+            right: 10%;
+            animation: float-shape 12s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float-shape {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(20px, 30px) rotate(120deg); }
+            66% { transform: translate(-15px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        .nav-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .footer-links a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+        
+        /* Ajustes de responsividad */
+        @media (max-width: 1024px) {
+            .workflow-animation {
+                height: 250px;
+            }
+            .node {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+            .robot-avatar {
+                width: 220px;
+                height: 220px;
+            }
+            .workflow-animation {
+                height: 200px;
+            }
+            .node {
+                width: 50px;
+                height: 50px;
+                font-size: 0.7rem;
+            }
+            .connector {
+                height: 3px;
+            }
+            .stats-number {
+                font-size: 2rem;
+            }
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-gradient {
+                text-align: center;
+            }
+            .robot-avatar {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            .workflow-animation {
+                height: 150px;
+                margin-bottom: 40px;
+            }
+            .node {
+                width: 40px;
+                height: 40px;
+                font-size: 0.6rem;
+            }
+            .service-card, .testimonial-card {
+                margin: 0 10px;
+            }
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            .robot-avatar {
+                width: 180px;
+                height: 180px;
+            }
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493491541201" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="h-12 w-12 mr-3 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                        <img src="img/logo.png">
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Ninapochona</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-800 hover:text-green-600 transition font-medium">Inicio</a>
+                    <a href="#servicios" class="text-gray-800 hover:text-green-600 transition font-medium">Servicios</a>
+                    <a href="#funcionamiento" class="text-gray-800 hover:text-green-600 transition font-medium">¿Cómo Funciona?</a>
+                    <a href="#casos" class="text-gray-800 hover:text-green-600 transition font-medium">Casos de Éxito</a>
+                    <a href="recursos-automatizaciones.html" class="text-gray-800 hover:text-green-600 transition font-madium">Recursos</a>
+                    <a href="#contacto" class="btn-primary px-5 py-2.5 rounded-full font-medium">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-        <button class="mobile-menu-btn" aria-label="Menú de navegación">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#beneficios">¿Por qué elegirlo?</a></li>
-                <li><a href="#procesos">Proceso de envasado</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    </nav>
+    
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="bubbles">
-            <!-- Bubbles will be generated by JavaScript -->
+    <section id="inicio" class="hero-gradient section-padding">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 leading-tight">Automatización con <span class="gradient-text">alma</span> para tu negocio</h1>
+                    <p class="text-xl text-gray-600 mb-8">Agentes automatizados con IA diseñados específicamente para potenciar tu empresa</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-center text-lg font-semibold">Solicitá tu agente personalizado</a>
+                        <a href="#servicios" class="btn-secondary px-8 py-4 rounded-full text-center text-lg font-semibold">Ver servicios</a>
+                    </div>
+                    <div class="mt-10 flex items-center space-x-8">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-green-500 mr-3">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-700">+100 clientes satisfechos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-blue-500 mr-3">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <span class="text-gray-700">Implementación rápida</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Robot Ninapochona" class="robot-avatar w-80 h-80 rounded-2xl object-cover shadow-xl">
+                        <div class="absolute -bottom-5 -right-5 bg-blue-100 rounded-2xl p-4 shadow-lg max-w-xs">
+                            <span class="text-blue-600 font-bold text-sm">"Automatización de procesos mediante agentes con IA que aprenden de tu negocio"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-content">
-            <h1>Agua Purificada de Calidad en Tostado</h1>
-            <p>Procesos de ósmosis inversa, luz ultravioleta y ozonización para garantizar agua 100% pura y segura para tu familia.</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/543491444866" class="btn btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                </a>
-                <a href="#beneficios" class="btn btn-secondary">
-                    <i class="fas fa-shopping-cart"></i> Ver Productos
-                </a>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="stats-number">+200</div>
+                    <p class="text-gray-600 font-medium">Procesos automatizados</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">98%</div>
+                    <p class="text-gray-600 font-medium">Clientes satisfechos</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">10M+</div>
+                    <p class="text-gray-600 font-medium">Tareas ejecutadas</p>
+                </div>
+                <div class="p-6">
+                    <div class="stats-number">24/7</div>
+                    <p class="text-gray-600 font-medium">Soporte continuo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Workflow Animation -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Flujos de trabajo inteligentes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Diseñamos procesos automatizados que se adaptan a las necesidades específicas de tu negocio</p>
+            </div>
+            
+            <div class="workflow-animation mx-auto">
+                <div class="node bg-green-500" style="top: 50px; left: 50px;">⚡Trigger</div>
+                <div class="connector animated-connector" style="top: 90px; left: 130px; width: 100px; animation-delay: 0.5s;"></div>
+                <div class="node bg-blue-500" style="top: 50px; left: 230px;">🌐API</div> 
+                <div class="connector animated-connector" style="top: 90px; left: 310px; width: 100px; animation-delay: 1s;"></div>
+                <div class="node bg-green-500" style="top: 50px; left: 410px;">⚙️Proceso</div>
+                <div class="connector animated-connector" style="top: 90px; left: 490px; width: 100px; animation-delay: 1.5s;"></div>
+                <div class="node bg-blue-500" style="top: 50px; left: 590px;">📤Salida</div>
+                
+                <div class="absolute bottom-4 left-0 right-0 text-center">
+                    <p class="text-lg text-gray-600 font-medium">Flujo de trabajo modular y personalizable para cada necesidad de tu negocio</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <main>
-        <!-- About Section -->
-        <section id="nosotros">
-            <h2>Sobre Nosotros</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Comprometidos con tu salud desde 2010</h3>
-                    <p>En L´naua nos especializamos en el envasado de agua de mesa de la más alta calidad en Tostado, Santa Fe. Nuestra misión es proporcionar agua purificada que cumpla con los más estrictos estándares de calidad y seguridad.</p>
-                    <p>Utilizamos tecnología de punta en nuestros procesos de purificación, incluyendo ósmosis inversa, luz ultravioleta y ozonización, para eliminar cualquier impureza, bacteria o virus, garantizando un producto final cristalino, de excelente sabor y totalmente seguro para el consumo humano.</p>
-                    <p>Nuestro compromiso va más allá de simplemente vender agua; nos preocupamos por la salud y bienestar de cada familia en Tostado y localidades cercanas.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Proceso de purificación de agua L´naua" loading="lazy">
-                </div>
+    <!-- Services Section -->
+    <section id="servicios" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nuestros Agentes Automatizados</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Soluciones diseñadas para optimizar tus procesos, ahorrar tiempo y aumentar tu rentabilidad</p>
             </div>
-        </section>
-
-        <!-- Products Section -->
-        <section id="productos" class="products-carousel">
-            <h2>Nuestros Productos</h2>
-            <p class="text-center">Ofrecemos diferentes opciones para satisfacer tus necesidades</p>
             
-            <div class="products-container">
-                <button class="carousel-btn prev" aria-label="Producto anterior">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="products-track">
-                    <!-- Product 1 -->
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="img/bidon.jpg" alt="Bidón de agua 20L">
-                            </div>
-                            <h3>Bidón de 20 Litros</h3>
-                            <p>Agua purificada en envase reutilizable con faja de seguridad. Ideal para hogares y oficinas.</p>
-                            <p><strong>Precio: $XXX</strong></p>
-
-                             <a href="https://wa.me/5493491444866?text=Hola%20L'naua,%20estoy%20interesado%20en%20sus%20productos" class="btn btn-primary" target="_blank">
-                             <i class="fab fa-whatsapp"></i> Contactanos
-                             </a>
-                            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-check"></i>
                         </div>
-                    </div>
-                    
-                    <!-- Product 2 -->
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="img/dispensor natural.jpg" alt="Dispensador natural">
-                            </div>
-                            <h3>Dispensador Natural</h3>
-                            <p>Práctico dispensador para tu hogar u oficina. Fácil de usar y mantener.</p>
-                            <p><strong>Precio: $XXX</strong></p>
-
-                             <a href="https://wa.me/5493491444866?text=Hola%20L'naua,%20estoy%20interesado%20en%20sus%20productos" class="btn btn-primary" target="_blank">
-                             <i class="fab fa-whatsapp"></i> Contactanos
-                             </a>
-                            
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Agente Appointment Setter</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Automatiza la gestión de citas desde Instagram, WhatsApp y otros canales, respondiendo a tus clientes 24/7 con tu voz y estilo.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-blue-800"><strong>Caso de uso:</strong> Restaurante que perdió reservas por no responder mensajes nocturnos.</p>
                         </div>
-                    </div>
-                    
-                    <!-- Product 3 -->
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="img/friocalor.jpg" alt="Dispensador frío/calor">
-                            </div>
-                            <h3>Dispensador Frío/Calor</h3>
-                            <p>Dispensador con opción de agua fría o caliente al instante. Perfecto para oficinas.</p>
-                            <p><strong>Precio: $XXX</strong></p>
-
-                             <a href="https://wa.me/5493491444866?text=Hola%20L'naua,%20estoy%20interesado%20en%20sus%20productos" class="btn btn-primary" target="_blank">
-                             <i class="fab fa-whatsapp"></i> Contactanos
-                             </a>
-                            
-                        </div>
-                    </div>
-                    
-                    <!-- Product 4 -->
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="img/dispensor automatico con usb.jpg" alt="Dispensador automático">
-                            </div>
-                            <h3>Dispensador Automático</h3>
-                            <p>Tecnología avanzada para mayor comodidad. Funcionamiento eléctrico sin contacto.</p>
-                            <p><strong>Precio: $XXX</strong></p>
-
-                             <a href="https://wa.me/5493491444866?text=Hola%20L'naua,%20estoy%20interesado%20en%20sus%20productos" class="btn btn-primary" target="_blank">
-                             <i class="fab fa-whatsapp"></i> Contactanos
-                             </a>
-                            
-                        </div>
+                        <a href="#contacto" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero este agente</a>
                     </div>
                 </div>
                 
-                <button class="carousel-btn next" aria-label="Siguiente producto">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            
-            <div class="carousel-indicators">
-                <div class="indicator active" data-slide="0"></div>
-                <div class="indicator" data-slide="1"></div>
-                <div class="indicator" data-slide="2"></div>
-                <div class="indicator" data-slide="3"></div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section id="beneficios">
-            <h2>¿Por qué elegir L´naua?</h2>
-            <p class="text-center">Nuestro proceso de purificación garantiza agua de la más alta calidad para tu familia</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-filter"></i>
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Asistente Personal para CEOs</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Gestiona tu agenda, prioriza correos y organiza reuniones automáticamente, manteniendo tu estilo de comunicación.</p>
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-green-800"><strong>Caso de uso:</strong> Emprendedor que recuperó 10 horas semanales para enfocarse en crecimiento.</p>
+                        </div>
+                        <a href="#contacto" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero este agente</a>
                     </div>
-                    <h3>Ósmosis Inversa</h3>
-                    <p>Eliminamos el 99.9% de impurezas, metales pesados y sales disueltas mediante nuestro avanzado sistema de ósmosis inversa.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-sun"></i>
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Creador de Blog SEO Expert</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Genera contenido optimizado para SEO basado en tus keywords, manteniendo la voz de tu marca y actualizando regularmente.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-blue-800"><strong>Caso de uso:</strong> Tienda online que aumentó tráfico orgánico en 300% en 3 meses.</p>
+                        </div>
+                        <a href="#contacto" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero este agente</a>
                     </div>
-                    <h3>Luz Ultravioleta</h3>
-                    <p>Desinfección con luz UV que destruye bacterias, virus y otros microorganismos sin alterar las propiedades del agua.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-virus"></i>
+                <!-- Service Card 4 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Extractor KPIs de Meta Ads</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Consolida métricas clave de tus campañas en informes automáticos con análisis inteligente para toma de decisiones.</p>
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-green-800"><strong>Caso de uso:</strong> Agencia que redujo tiempo de reporting de 8h a 15min semanales.</p>
+                        </div>
+                        <a href="#contacto" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero este agente</a>
                     </div>
-                    <h3>Ozonización</h3>
-                    <p>Tratamiento con ozono que garantiza la eliminación de cualquier contaminante residual y prolonga la frescura del agua.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-flask"></i>
+                <!-- Service Card 5 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">MCP Server para Google Calendar y Shopify</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Sincroniza automáticamente pedidos de Shopify con tu agenda, evitando conflictos y optimizando tu tiempo.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-blue-800"><strong>Caso de uso:</strong> Negocio que eliminó el 100% de los errores de programación de entregas.</p>
+                        </div>
+                        <a href="#contacto" class="btn-secondary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero este agente</a>
                     </div>
-                    <h3>Análisis Periódicos</h3>
-                    <p>Realizamos controles de calidad regulares en laboratorios certificados para asegurar la pureza de nuestro producto.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3>Envases Reutilizables</h3>
-                    <p>Nuestros bidones son 100% reutilizables y reciclables, reduciendo el impacto ambiental.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Entrega a Domicilio</h3>
-                    <p>Servicio de reparto eficiente en Tostado y localidades cercanas para tu comodidad.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Gallery Section -->
-        <section id="procesos">
-            <h2>Nuestro Proceso de envasado</h2>
-            <p class="text-center">Conoce cómo producimos agua de la más alta calidad</p>
-            
-            <div class="video-gallery">
-                <div class="video-placeholder">
-                    <i class="fas fa-play" style="font-size: 3rem;"></i>
-                    <p>Proceso de purificación</p>
-                </div>
-                <div class="video-placeholder">
-                    <i class="fas fa-play" style="font-size: 3rem;"></i>
-                    <p>Instalaciones</p>
-                </div>
-                <div class="video-placeholder">
-                    <i class="fas fa-play" style="font-size: 3rem;"></i>
-                    <p>Testimonios</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Safety Section -->
-        <section id="seguridad">
-            <h2>Faja de Seguridad en Bidones</h2>
-            <div class="safety-content">
-                <div class="safety-image">
-                    <img src="img/vendedor.jpg" alt="Bidón de agua con faja de seguridad L´naua">
-                </div>
-                <div class="about-text">
-                    <h3>Garantía de Originalidad</h3>
-                    <p>En L´naua implementamos un sistema de faja de seguridad en todos nuestros bidones para garantizar que el producto que recibes es 100% original y no ha sido alterado.</p>
-                    <p>Nuestra faja de seguridad incluye:</p>
-                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Sello inviolable que se rompe al abrir el bidón</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Número de lote y fecha de envasado</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Código QR para verificación de autenticidad</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Indicadores de manipulación</li>
-                    </ul>
-                    <p>Esta medida de seguridad adicional protege a nuestros clientes y garantiza que el agua mantenga todas sus propiedades hasta el momento de su consumo.</p>
-                </div>
-            </div>
-        </section>
-
-         <!-- Contact Section -->
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p class="text-center">Estamos para servirte en Tostado y localidades cercanas</p>
-            
-            <div class="contact-info">    
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3>Teléfonos</h3>
-                    <p>Fijo: 03491 473906</p>
-                    <p>WhatsApp: 03491 444866</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Horarios</h3>
-                    <p>Lunes a Viernes</p>
-                    <p>08:00 a 13:00 hs</p>
-                    <p>16:00 a 20:30 hs</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p>agualanua@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/lnaua_" class="social-link" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/543491444866" class="social-link" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:agualanua@gmail.com" class="social-link" target="_blank" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                <!-- Service Card 6 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Agente Personalizado</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">¿Necesitas algo específico? Creamos un agente a medida para resolver tu desafío único de automatización.</p>
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-green-800"><strong>Caso de uso:</strong> Tu problema + nuestra solución = tiempo y dinero ahorrado.</p>
+                        </div>
+                        <a href="#contacto" class="btn-primary block text-center px-4 py-2.5 rounded-full mt-auto">Quiero un agente personalizado</a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://maps.google.com/maps?q=Calle%20Las%20Heras%201542,%20Tostado&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
-
-        <!-- Locations Carousel -->
-        <section class="locations-carousel">
-            <h2>Servimos a Tostado y Localidades Cercanas</h2>
-            <p class="text-center">Llevamos agua de calidad a toda la región</p>
-            
-            <div class="products-container">
-                <button class="carousel-btn prev" aria-label="Localidad anterior">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="products-track">
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3481.625047727498!2d-61.7796313258984!3d-29.234581494193286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94364b93997a21fd%3A0xc494f95cb24c5486!2sLas%20Heras%2C%20S3060%20Tostado%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1752179115808!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                            <h3>Tostado</h3>
-                            <p>Entrega a domicilio en toda la ciudad</p>
-                            <p>Puntos de venta en principales comercios</p>
-                        </div>
-                    </div>
-                    
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28017.16933919201!2d-61.63746740315821!3d-28.625381022290345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437f20b7d6626d7%3A0x4308c7e4adbde75e!2sVilla%20Minetti%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1752179063464!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                            <h3>Villa Minetti</h3>
-                            <p>Servicio de reparto semanal</p>
-                            <p>Pedidos con 24 horas de anticipación</p>
-                        </div>
-                    </div>
-                    
-                    <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">                   
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28099.811918737145!2d-61.58352962500605!3d-28.3141784529799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94381afb22c6e077%3A0x71ab62a6340769d2!2sSanta%20Margarita%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1752179185376!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                            <h3>Santa Margarita</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13966.794693327369!2d-61.717997216802864!3d-28.9369947791078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437b888b443081b%3A0x8cf7b78b00e4c175!2sPozo%20Borrado%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1752179005209!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                            <h3>Pozo Borrado</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27896.44593070842!2d-61.75699650155606!3d-29.074497769101384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437b67831d4a743%3A0x1f46e731265342c1!2sAntonio%20Pini%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1752179409073!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                            <h3>Antonio Pini</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>San Bernardo</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>Gregoria Péres de Denis</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>Gato Colorado</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>Logroño</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>Bandera</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1582719471386-3a8b0b17d0b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santa Margarita" loading="lazy">
-                            </div>
-                            <h3>Cuatro Bocas</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                      <div class="product-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6970.654607799163!2d-61.93831935!3d-29.125535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437adcd20baa19b%3A0x5599dfbf3d5b4f0e!2sFortin%20Inca%2C%20Santiago%20del%20Estero!5e0!3m2!1ses-419!2sar!4v1752178870166!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                            <h3>Fortin Inca</h3>
-                            <p>Entrega los días martes y viernes</p>
-                            <p>Punto de retiro en el centro</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-                <button class="carousel-btn next" aria-label="Siguiente localidad">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-            <div class="carousel-indicators">
-                <div class="indicator active" data-slide="0"></div>
-                <div class="indicator" data-slide="1"></div>
-                <div class="indicator" data-slide="2"></div>
-                <div class="indicator" data-slide="3"></div>
-                <div class="indicator" data-slide="4"></div>
-                <div class="indicator" data-slide="5"></div>
-                <div class="indicator" data-slide="6"></div>
-                <div class="indicator" data-slide="7"></div>
-                <div class="indicator" data-slide="8"></div>
-                <div class="indicator" data-slide="9"></div>
-                <div class="indicator" data-slide="10"></div>
-                <div class="indicator" data-slide="11"></div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>L´naua</h3>
-                <p>Agua de mesa envasada de máxima calidad en Tostado, Santa Fe. Procesos de purificación avanzados para garantizar agua 100% pura y segura.</p>
-                <div class="social-links" style="justify-content: flex-start; margin-top: 1.5rem;">
-                    <a href="https://www.instagram.com/lnaua_" class="social-link" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/543491444866" class="social-link" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="mailto:agualanua@gmail.com" class="social-link" target="_blank" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Enlaces Rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
-                    <li><a href="#productos"><i class="fas fa-shopping-cart"></i> Productos</a></li>
-                    <li><a href="#beneficios"><i class="fas fa-check-circle"></i> Beneficios</a></li>
-                    <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contacto</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> Calle Las Heras 1542, Tostado</li>
-                    <li><i class="fas fa-phone-alt"></i> 03491 473906</li>
-                    <li><i class="fab fa-whatsapp"></i> 03491 444866</li>
-                    <li><i class="fas fa-envelope"></i> agualanua@gmail.com</li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Horarios</h3>
-                <ul class="footer-links">
-                    <li><i class="far fa-clock"></i> Lunes a Viernes</li>
-                    <li>Mañanas: 08:00 - 13:00 hs</li>
-                    <li>Tardes: 16:00 - 20:30 hs</li>
-                    <li><i class="far fa-clock"></i> Sábados: 09:00 - 12:30 hs</li>
-                </ul>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year">2023</span> L´naua Agua de Mesa Envasada. Todos los derechos reservados.</p>
+    </section>
+    
+    <!-- How it Works Section -->
+    <section id="funcionamiento" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">¿Cómo funciona nuestro proceso?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Un camino simple y transparente hacia la automatización de tus procesos</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">1. Consulta</h3>
+                    <p class="text-gray-600">Analizamos tus necesidades y procesos para identificar oportunidades de automatización.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">2. Propuesta</h3>
+                    <p class="text-gray-600">Diseñamos una solución personalizada con entregables claros y plazos definidos.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">3. Desarrollo</h3>
+                    <p class="text-gray-600">Creamos tu agente automatizado con integraciones específicas para tu negocio.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">4. Implementación</h3>
+                    <p class="text-gray-600">Lanzamos y optimizamos tu solución con soporte continuo para garantizar resultados.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">Comenzar ahora</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="casos" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Casos de éxito</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Lo que dicen nuestros clientes sobre la transformación de sus negocios</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg mr-3">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">María G.</h4>
+                            <p class="text-sm text-gray-600">Restaurante "El Buen Sabor"</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"El agente de reservas transformó nuestro negocio. Antes perdíamos hasta 15 reservas por semana por no responder a tiempo. Ahora gestiona todas las solicitudes automáticamente con nuestro tono y estilo."</p>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm text-blue-800"><strong>Resultado:</strong> +35% de reservas en 2 meses</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-lg mr-3">
+                            C
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carlos R.</h4>
+                            <p class="text-sm text-gray-600">CEO de Agencia Digital</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"El extractor de KPIs nos ahorra más de 8 horas semanales en reporting. Los informes automáticos con análisis inteligente nos permiten tomar decisiones más rápidas y basadas en datos reales."</p>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm text-green-800"><strong>Resultado:</strong> 8h semanales ahorradas</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg mr-3">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Andrea L.</h4>
+                            <p class="text-sm text-gray-600">E-commerce de Moda</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"El MCP Server para Shopify y Google Calendar eliminó todos nuestros errores de programación. Ahora cada pedido se agenda automáticamente sin conflictos y nuestros clientes reciben confirmaciones inmediatas."</p>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm text-blue-800"><strong>Resultado:</strong> 100% de errores eliminados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section py-16 text-white">
+        <div class="cta-pattern"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para automatizar tu negocio?</h2>
+                <p class="text-xl mb-8 opacity-90">Agendá una consulta gratuita y descubrí cómo nuestros agentes pueden potenciar tu empresa</p>
+                <a href="https://wa.me/5493491541201" class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold inline-block hover:bg-gray-100 transition shadow-lg">Agendar consulta gratuita</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Preguntas frecuentes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Resolvemos tus dudas sobre nuestros agentes automatizados</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Qué es un agente automatizado?</h3>
+                    <p class="text-gray-600">Un agente automatizado es un sistema inteligente que realiza tareas específicas de forma autónoma, imitando procesos humanos pero con mayor velocidad, precisión y disponibilidad 24/7.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Necesito conocimientos técnicos para usar estos agentes?</h3>
+                    <p class="text-gray-600">No, nuestros agentes están diseñados para ser utilizados sin conocimientos técnicos. Te proporcionamos una interfaz simple y capacitación para que puedas gestionarlos fácilmente.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Cuánto tiempo toma implementar un agente?</h3>
+                    <p class="text-gray-600">El tiempo de implementación varía según la complejidad del agente, pero generalmente oscila entre 1 y 3 semanas desde la consulta inicial hasta la puesta en producción.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">¿Qué garantía ofrecen?</h3>
+                    <p class="text-gray-600">Ofrecemos 30 días de soporte y ajustes posteriores a la implementación para garantizar que el agente funcione perfectamente según tus necesidades.</p>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#contacto" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">¿Tienes otra pregunta?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Contactanos</h2>
+                    <p class="text-xl text-gray-600">Completá el formulario y nos pondremos en contacto a la brevedad</p>
+                </div>
+                
+                <form class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tu nombre completo">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="business" class="block text-gray-700 font-medium mb-2">Tu negocio</label>
+                        <input type="text" id="business" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="¿A qué te dedicás?">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="service" class="block text-gray-700 font-medium mb-2">Servicio de interés</label>
+                        <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Seleccioná una opción</option>
+                            <option value="appointment">Agente Appointment Setter</option>
+                            <option value="ceo">Asistente Personal para CEOs</option>
+                            <option value="seo">Creador de Blog SEO Expert</option>
+                            <option value="kpis">Extractor KPIs de Meta Ads</option>
+                            <option value="mcp">MCP Server para Google Calendar y Shopify</option>
+                            <option value="custom">Agente Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Contanos sobre tus necesidades y desafíos..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full py-4 rounded-lg text-lg font-semibold">Enviar consulta</button>
+                </form>
+                
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="w-16 h-16 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-4">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">WhatsApp</h3>
+                        <p class="text-gray-600 mb-2">+54 9 3491 507341</p>
+                        <a href="https://wa.me/5493491507341" class="text-blue-600 font-medium hover:underline">Enviar mensaje</a>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="w-16 h-16 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Email</h3>
+                        <p class="text-gray-600 mb-2">info@ninapochona.com</p>
+                        <a href="mailto:info@ninapochona.com" class="text-blue-600 font-medium hover:underline">Enviar email</a>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="w-16 h-16 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ubicación</h3>
+                        <p class="text-gray-600">Argentina</p>
+                        <p class="text-gray-600">Atendemos clientes de todo el mundo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="h-10 w-10 mr-3 bg-gradient-to-r from-blue-600 to-green-500 rounded-xl flex items-center justify-center text-white font-bold">
+                            NP
+                        </div>
+                        <span class="text-xl font-bold">Ninapochona</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Automatización con alma para tu negocio. Agentes automatizados con IA diseñados específicamente para potenciar tu empresa.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Servicios</h3>
+                    <ul class="space-y-3 footer-links">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Agente Appointment Setter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Asistente Personal para CEOs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Creador de Blog SEO Expert</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Extractor KPIs de Meta Ads</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">MCP Server</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Agente Personalizado</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Enlaces útiles</h3>
+                    <ul class="space-y-3 footer-links">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
+                        <li><a href="#funcionamiento" class="text-gray-400 hover:text-white">¿Cómo Funciona?</a></li>
+                        <li><a href="#casos" class="text-gray-400 hover:text-white">Casos de Éxito</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
+                        <li><a href="/blog/" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Suscribite al newsletter</h3>
+                    <p class="text-gray-400 mb-4">Recibí tips de automatización y casos de estudio directamente en tu email.</p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Tu email" class="px-4 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <button type="submit" class="btn-primary px-4 py-2.5 rounded-lg text-center">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Ninapochona. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            // This would toggle a mobile menu - functionality to be expanded
+            alert('Menú móvil - En desarrollo');
+        });
+        
+        // Form submission prevention for demo
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
+        });
+        
+        // Animation for workflow connectors
+        function animateConnectors() {
+            const connectors = document.querySelectorAll('.animated-connector');
+            connectors.forEach((connector, index) => {
+                connector.style.animationDelay = `${index * 0.5}s`;
+            });
+        }
+        
+        animateConnectors();
 
-    <!-- Accessibility Button -->
-    <!--<button class="accessibility-btn" aria-label="Opciones de accesibilidad">
-        <i class="fas fa-universal-access"></i>
-    </button>-->
 
-    <!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/5493491444866?text=Hola%20L'naua,%20estoy%20interesado%20en%20sus%20productos"
-   class="whatsapp-float" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-       alt="WhatsApp" style="width:60px; height:60px;">
-</a>
-    <script src="js/scripts.js"></script>
 
+
+
+
+          const nodes = document.querySelectorAll('.node');
+    const lines = [document.getElementById('line1'), document.getElementById('line2'), document.getElementById('line3')];
+    const workflow = document.querySelector('.workflow');
+
+    function setLinePositions() {
+      lines.forEach((line, index) => {
+        const start = nodes[index].getBoundingClientRect();
+        const end = nodes[index + 1].getBoundingClientRect();
+        const container = workflow.getBoundingClientRect();
+
+        const x1 = start.right - container.left;
+        const x2 = end.left - container.left;
+        line.style.left = x1 + 'px';
+        line.style.width = (x2 - x1) + 'px';
+      });
+    }
+
+    window.addEventListener('resize', setLinePositions);
+    window.addEventListener('load', () => {
+      setLinePositions();
+      animateFlow();
+    });
+
+    function animateFlow() {
+      let i = 0;
+      function step() {
+        if (i > 0) nodes[i-1].classList.remove('active');
+        if (i < nodes.length) {
+          nodes[i].classList.add('active');
+
+          const flow = document.createElement('div');
+          flow.classList.add('flow');
+          const line = lines[i];
+          if (line) {
+            flow.style.left = line.style.left;
+            line.parentElement.appendChild(flow);
+
+            let width = 0;
+            const interval = setInterval(() => {
+              if (width >= parseInt(line.style.width)) {
+                clearInterval(interval);
+                i++;
+                setTimeout(step, 800);
+              } else {
+                width += 5;
+                flow.style.width = width + 'px';
+              }
+            }, 20);
+          } else {
+            i++;
+            setTimeout(step, 1000);
+          }
+        } else {
+          setTimeout(() => {
+            nodes.forEach(n => n.classList.remove('active'));
+            document.querySelectorAll('.flow').forEach(f => f.remove());
+            i = 0;
+            step();
+          }, 2000);
+        }
+      }
+      step();
+    }
+    </script>
 </body>
 </html>
